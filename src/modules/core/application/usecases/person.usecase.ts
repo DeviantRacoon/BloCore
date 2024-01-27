@@ -1,11 +1,11 @@
-import { PersonServices } from "../../domain/services/person.service"
-import { PersonFactory } from "../factory/person.factory"
+import { PersonAdapter } from "../../infrastructure/adapters/person.adapter"
+import { PersonFactory } from "../factories/person.factory"
 import { Person } from "../../infrastructure/models/person"
 
 export class PersonUseCase {
 
     constructor(
-        private personServices = new PersonServices(),
+        private personServices = new PersonAdapter(),
     ) { }
 
     async getPersons() {
@@ -13,8 +13,8 @@ export class PersonUseCase {
         return data
     }
 
-    async getPersonByPk(PersonID: number) {
-        const data = await this.personServices.getPersonByPk(PersonID)
+    async getPersonByPk(personID: number) {
+        const data = await this.personServices.getPersonByPk(personID)
         return data
     }
 

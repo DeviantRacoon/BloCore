@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 
-import { TeacherUseCase } from "../../../application/usecase/teacher.usecase";
-import { TeacherFactory } from "../../../application/factory/teacher.factory";
-import { Teacher } from "../../models/teacher";
+// import { StudentUseCase } from "../../../application/usecase/student.usecase";
+// import { StudentFactory } from "../../../application/factory/student.factory";
+// import { Student } from "../../models/student";
 
-const teacherUseCase = new TeacherUseCase();
+const studentUseCase = new StudentUseCase();
 
-export const getTeachers = async (request: Request, response: Response) => {
+export const getStudents = async (request: Request, response: Response) => {
     try {
-        const data = await teacherUseCase.getTeachers();
+        const data = await studentUseCase.getStudents();
 
         return response.json({
             ok: true,
@@ -22,10 +22,10 @@ export const getTeachers = async (request: Request, response: Response) => {
     }
 };
 
-export const getTeacherByPk = async (request: Request, response: Response) => {
+export const getStudentByPk = async (request: Request, response: Response) => {
     try {
         let id = Number(request.params.id)
-        const data = await teacherUseCase.getTeacherByPk(id);
+        const data = await studentUseCase.getStudentByPk(id);
 
         return response.json({
             ok: true,
@@ -40,11 +40,11 @@ export const getTeacherByPk = async (request: Request, response: Response) => {
     }
 };
 
-export const saveTeacher = async (request: Request, response: Response) => {
+export const saveStudent = async (request: Request, response: Response) => {
     try {
-        let teacher = new Teacher();
-        TeacherFactory.assignment(teacher, request.body);
-        const data = await teacherUseCase.saveTeacher(teacher);
+        let student = new Student();
+        StudentFactory.assignment(student, request.body);
+        const data = await studentUseCase.saveStudent(student);
 
         return response.json({
             ok: true,
@@ -59,11 +59,11 @@ export const saveTeacher = async (request: Request, response: Response) => {
     }
 };
 
-export const updateTeacher = async (request: Request, response: Response) => {
+export const updateStudent = async (request: Request, response: Response) => {
     try {
-        let teacher = new Teacher();
-        TeacherFactory.assignment(teacher, request.body);
-        const data = await teacherUseCase.updateTeacher(teacher);
+        let student = new Student();
+        StudentFactory.assignment(student, request.body);
+        const data = await studentUseCase.updateStudent(student);
 
         return response.json({
             ok: true,
@@ -80,9 +80,9 @@ export const updateTeacher = async (request: Request, response: Response) => {
 
 export const savesSubjectToTeacher = async (request: Request, response: Response) => {
     try {
-        let teacher = new Teacher();
-        TeacherFactory.assignment(teacher, request.body);
-        const data = await teacherUseCase.savesSubjectToTeacher(teacher);
+        let student = new Student();
+        StudentFactory.assignment(student, request.body);
+        const data = await studentUseCase.savesSubjectToStudent(student);
 
         return response.json({
             ok: true,
@@ -96,3 +96,4 @@ export const savesSubjectToTeacher = async (request: Request, response: Response
         });
     }
 };
+

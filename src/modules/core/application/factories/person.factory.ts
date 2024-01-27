@@ -145,4 +145,20 @@ export class PersonFactory {
         return fields.some(field => field === undefined);
     }
 
+    static arrayToJsonArray(data: Person[]) {
+        let personJson: any[] = [];
+        data?.map(person => {
+            personJson.push(this.toJson(person));
+        });
+        return personJson;
+    }
+
+    static arrayJsonToModelArray(data: any) {
+        let persons: Person[] = [];
+        data?.map((person: any) => {
+            persons.push(this.jsonToModel(person));
+        });
+        return persons;
+    }
+
 }
