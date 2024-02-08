@@ -17,10 +17,10 @@ export class UserFactory {
             user.setPerson = undefined;
         }
 
-        if (fields.email) {
-            user.setEmail = fields.email;
+        if (fields.username) {
+            user.setUsername = fields.username;
         } else {
-            user.setEmail = undefined;
+            user.setUsername = undefined;
         }
 
         if (fields.password) {
@@ -69,10 +69,10 @@ export class UserFactory {
             user.setPerson = undefined;
         }
 
-        if (fields.email) {
-            user.setEmail = fields.email;
+        if (fields.username) {
+            user.setUsername = fields.username;
         } else {
-            user.setEmail = undefined;
+            user.setUsername = undefined;
         }
 
         if (fields.password) {
@@ -111,7 +111,7 @@ export class UserFactory {
     static toJson(user: User) {
         return {
             userId: user.getUserId,
-            email: user.getEmail,
+            email: user.getUsername,
             password: user.getPassword,
             role: user.getRole,
             person: PersonFactory.toJson(user.getPerson!),
@@ -124,7 +124,7 @@ export class UserFactory {
     static checkUndefinedFields(user: User) {
         const fields = [
             user.getPerson,
-            user.getEmail,
+            user.getUsername,
             user.getPassword
         ];
 

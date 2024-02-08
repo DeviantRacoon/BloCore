@@ -17,7 +17,7 @@ export const AppDataSource = new DataSource({
     password: process.env.PASSWORD_MYSQL,
     database: process.env.DATABASE_MYSQL,
     synchronize: true,
-    // logging: true,
+    // logging: true, 
     entities: [
         PersonEntity,
         UserEntity,

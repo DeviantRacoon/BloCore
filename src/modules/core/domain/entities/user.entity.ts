@@ -8,7 +8,7 @@ export class UserEntity extends BaseEntity {
     userId!: number
 
     @Column()
-    email!: string
+    username!: string
 
     @Column()
     password!: string

@@ -3,7 +3,7 @@ import { Person } from "./person";
 export class User {
 
     private userId: number | undefined
-    private email: string | undefined
+    private username: string | undefined
     private password: string | undefined
     private role: number | undefined
     private person: Person | undefined
@@ -20,12 +20,12 @@ export class User {
         this.userId = value
     }
 
-    public get getEmail(): string | undefined {
-        return this.email
+    public get getUsername(): string | undefined {
+        return this.username
     }
 
-    public set setEmail(value: string | undefined) {
-        this.email = value
+    public set setUsername(value: string | undefined) {
+        this.username = value
     }
 
     public get getPassword(): string | undefined {

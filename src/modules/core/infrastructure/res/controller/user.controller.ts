@@ -1,14 +1,13 @@
 import { Request, Response } from "express";
 
-// import { StudentUseCase } from "../../../application/usecase/student.usecase";
-// import { StudentFactory } from "../../../application/factory/student.factory";
-// import { Student } from "../../models/student";
+import userUseCase from "../../../application/usecases/user";
+import { UserFactory } from "../../../application/factories/user.factory"; 
+import { User } from "../../models/user"; 
 
-const studentUseCase = new StudentUseCase();
 
-export const getStudents = async (request: Request, response: Response) => {
+export const getUsers = async (request: Request, response: Response) => {
     try {
-        const data = await studentUseCase.getStudents();
+        const data = await userUseCase.getUsers();
 
         return response.json({
             ok: true,
@@ -22,10 +21,10 @@ export const getStudents = async (request: Request, response: Response) => {
     }
 };
 
-export const getStudentByPk = async (request: Request, response: Response) => {
+export const getUserByPk = async (request: Request, response: Response) => {
     try {
         let id = Number(request.params.id)
-        const data = await studentUseCase.getStudentByPk(id);
+        const data = await userUseCase.getUserByPk(id);
 
         return response.json({
             ok: true,
@@ -40,11 +39,11 @@ export const getStudentByPk = async (request: Request, response: Response) => {
     }
 };
 
-export const saveStudent = async (request: Request, response: Response) => {
+export const createUser = async (request: Request, response: Response) => {
     try {
-        let student = new Student();
-        StudentFactory.assignment(student, request.body);
-        const data = await studentUseCase.saveStudent(student);
+        let user = new User();
+        UserFactory.assignment(user, request.body);
+        const data = await userUseCase.createUser(user);
 
         return response.json({
             ok: true,
@@ -59,11 +58,11 @@ export const saveStudent = async (request: Request, response: Response) => {
     }
 };
 
-export const updateStudent = async (request: Request, response: Response) => {
+export const updateUser = async (request: Request, response: Response) => {
     try {
-        let student = new Student();
-        StudentFactory.assignment(student, request.body);
-        const data = await studentUseCase.updateStudent(student);
+        let user = new User();
+        UserFactory.assignment(user, request.body);
+        const data = await userUseCase.updateUser(user);
 
         return response.json({
             ok: true,
@@ -78,22 +77,22 @@ export const updateStudent = async (request: Request, response: Response) => {
     }
 };
 
-export const savesSubjectToTeacher = async (request: Request, response: Response) => {
+export const login = async (request: Request, response: Response) => {
     try {
-        let student = new Student();
-        StudentFactory.assignment(student, request.body);
-        const data = await studentUseCase.savesSubjectToStudent(student);
+        let user = new User();
+        UserFactory.assignment(user, request.body);
+        const token = await userUseCase.login(user)
 
+        response.setHeader('Authorization', `Bearer ${token}`)
         return response.json({
             ok: true,
-            data,
-        });
-
+            data: 'Login successful'
+        })
     } catch (error: any) {
         return response.json({
             ok: false,
-            error: error.message,
-        });
+            error: "usuario/contraseña incorrectos"
+        })
     }
 };
 
