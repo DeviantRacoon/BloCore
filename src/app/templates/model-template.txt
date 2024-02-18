@@ -1,0 +1,48 @@
+
+export class {className} {
+
+    static ENABLE = 1;
+    static DISABLE = 2;
+    static PENDING = 3;
+    static LOCK = 4;
+    static DELETE = 99;
+
+    private {varName}Id: number | undefined
+    private status: number | undefined
+    private dateRegister: string | undefined
+    private dateUpdate: string | undefined
+
+
+    public get get{varName}Id(): number | undefined {
+        return this.{varName}Id
+    }
+
+    public set set{varName}Id(value: number | undefined) {
+        this.{varName}Id = value
+    }
+
+    public get getStatus(): number | undefined {
+        return this.status
+    }
+
+    public set setStatus(value: number | undefined) {
+        this.status = value
+    }
+
+    public get getDateRegister(): string | undefined {
+        return this.dateRegister
+    }
+
+    public set setDateRegister(value: string | undefined) {
+        this.dateRegister = value
+    }
+
+    public get getDateUpdate(): string | undefined {
+        return this.dateUpdate
+    }
+
+    public set setDateUpdate(value: string | undefined) {
+        this.dateUpdate = value
+    }
+
+}

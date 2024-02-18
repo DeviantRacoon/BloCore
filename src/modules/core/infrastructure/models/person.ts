@@ -1,6 +1,10 @@
-import { Status } from "./status";
-
 export class Person {
+
+    static ENABLE = 1;
+    static DISABLE = 2;
+    static PENDING = 3;
+    static LOCK = 4;
+    static DELETE = 99;
 
     private personId: number | undefined;
     private firstName: string | undefined;

@@ -1,0 +1,9 @@
+import { {className} } from "../../infrastructure/models/{varName}";
+
+export abstract class {className}Repository {
+
+    abstract get{className}s(): Promise<{className}[]>;
+    abstract get{className}ByPk({varName}Id: number): Promise<{className}>;
+    abstract save{className}({varName}: {className}): Promise<{className}>;
+    
+}

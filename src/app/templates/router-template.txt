@@ -1,0 +1,12 @@
+import { get{className}s, get{className}ByPk, create{className}, update{className} } from "../controller/{varName}.controller";
+import { validateToken } from "../../../../../config/middleware/token.middleware"; 
+import { Router } from "express";
+
+const {varName}Router = Router()
+
+{varName}Router.get('/', [validateToken, get{className}s])
+{varName}Router.get('/:id', [validateToken, get{className}ByPk])
+{varName}Router.post('/', [validateToken, create{className}])
+{varName}Router.put('/', [validateToken, update{className}])
+
+export default {varName}Router;

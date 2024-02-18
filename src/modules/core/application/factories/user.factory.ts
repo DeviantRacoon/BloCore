@@ -111,7 +111,7 @@ export class UserFactory {
     static toJson(user: User) {
         return {
             userId: user.getUserId,
-            email: user.getUsername,
+            username: user.getUsername,
             password: user.getPassword,
             role: user.getRole,
             person: PersonFactory.toJson(user.getPerson!),

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn } from "typeorm"
 import { PersonEntity } from "./person.entity"
 
 @Entity('catalog_user')
@@ -13,13 +13,14 @@ export class UserEntity extends BaseEntity {
     @Column()
     password!: string
 
-    @Column()
+    @Column({ default: null })
     role!: number
 
-    @ManyToOne(()=> PersonEntity, (personEntity) => personEntity.personId)
-    person!: PersonEntity
+    @ManyToOne(() => PersonEntity, (personEntity) => personEntity.users)
+    @JoinColumn({ name: "personId" })
+    person!: PersonEntity;
 
-    @Column({ default: 1 })
+    @Column()
     status!: number
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

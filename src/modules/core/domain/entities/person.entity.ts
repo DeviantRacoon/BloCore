@@ -19,9 +19,9 @@ export class PersonEntity extends BaseEntity{
     secondLastName!: string
 
     @Column() 
-    age!: number
+    age!: number 
 
-    @Column({default: 1})
+    @Column()
     status!: number
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

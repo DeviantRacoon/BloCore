@@ -5,7 +5,7 @@ import express from "express";
 import corsOptions from "./config/middleware/cors.middlewares";
 import logger from "./config/logger";
 
-import { ServerExpress } from "./app/server";
+import { ServerExpress } from "./config/server";
 import { AppDataSource } from "./config/database/typeorm";
 import { routingModule } from "./config/middleware/routing.middleware";
 

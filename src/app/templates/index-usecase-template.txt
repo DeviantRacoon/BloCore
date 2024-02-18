@@ -1,0 +1,7 @@
+import { {className}Repository } from "../../../domain/repositories/{varName}.repository"; 
+import { {className}Adapter } from "../../../infrastructure/adapters/{varName}.adapter"; 
+import { {className}UseCase } from "./{varName}.{varName}case"; 
+
+const {varName}Repository = new {className}Adapter();
+const {varName}UseCase = new {className}UseCase({varName}Repository);
+export default {varName}UseCase;

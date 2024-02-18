@@ -1,11 +1,11 @@
 import express from 'express';
-import dotenv from '../config/dotenv';
+import dotenv from './dotenv';
 dotenv.config();
 
 export class ServerExpress {
 
     app: express.Application;
-    port: number;    
+    port: number;
 
     constructor() {
         this.app = express();

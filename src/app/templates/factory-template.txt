@@ -1,0 +1,94 @@
+import { {className} } from "../../infrastructure/models/{varName}";
+
+export class {className}Factory {
+
+    static assignment({varName}: {className}, fields: any) {
+
+        if (fields.{varName}Id) {
+            {varName}.set{className}Id = fields.{varName}Id;
+        } else {
+            {varName}.set{className}Id = undefined;
+        }
+
+        if (fields.status) {
+            {varName}.setStatus = fields.status;
+        } else {
+            {varName}.setStatus = undefined;
+        }
+
+        if (fields.dateRegister) {
+            {varName}.setDateRegister = fields.dateRegister;
+        } else {
+            {varName}.setDateRegister = undefined;
+        }
+
+        if (fields.dateUpdate) {
+            {varName}.setDateUpdate = fields.dateUpdate;
+        } else {
+            {varName}.setDateUpdate = undefined;
+        }
+    }
+
+    static jsonToModel(fields: any) {
+        let {varName} = new {className}()
+
+        if (fields.{varName}Id) {
+            {varName}.set{className}Id = fields.{varName}Id;
+        } else {
+            {varName}.set{className}Id = undefined;
+        }
+
+        if (fields.status) {
+            {varName}.setStatus = fields.status;
+        } else {
+            {varName}.setStatus = undefined;
+        }
+
+        if (fields.dateRegister) {
+            {varName}.setDateRegister = fields.dateRegister;
+        } else {
+            {varName}.setDateRegister = undefined;
+        }
+
+        if (fields.dateUpdate) {
+            {varName}.setDateUpdate = fields.dateUpdate;
+        } else {
+            {varName}.setDateUpdate = undefined;
+        }
+
+        return {varName};
+    }
+
+    static toJson({varName}: {className}) {
+        return {
+            {varName}Id: {varName}.get{className}Id,
+            status: {varName}.getStatus,
+            dateRegister: {varName}.getDateRegister,
+            dateUpdate: {varName}.getDateUpdate,
+        };
+    }
+
+    static checkUndefinedFields({varName}: {className}) {
+        const fields = [];
+
+        return fields.some(field => field === undefined);
+    }
+
+    static arrayToJsonArray(data: {className}[]) {
+        let {varName}Json: any[] = [];
+        data?.map({varName} => {
+            {varName}Json.push(this.toJson({varName}));
+        });
+        return {varName}Json;
+    }
+
+    static arrayJsonToModelArray(data: any) {
+        let {varName}s: {className}[] = [];
+        data?.map(({varName}: any) => {
+            {varName}s.push(this.jsonToModel({varName}));
+        });
+        return {varName}s;
+    }
+
+
+}

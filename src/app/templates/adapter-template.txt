@@ -1,0 +1,43 @@
+import { {className}Repository } from "../../domain/repositories/{varName}.repository"
+import { {className}Factory } from "../../application/factories/{varName}.factory"
+import { {className}Entity } from "../../domain/entities/{varName}.entity"
+import { AppDataSource } from "../../../../config/database/typeorm"
+import { {className} } from "../models/{varName}"
+
+export class {className}Adapter implements {className}Repository {
+
+    async get{className}s(): Promise<{className}[]> {
+        let {className}Repository = await AppDataSource
+            .getRepository({className}Entity)
+            .createQueryBuilder('{varName}')
+            .getMany()
+
+        return {className}Factory.arrayJsonToModelArray({className}Repository)
+    }
+
+    async get{className}ByPk({varName}Id: number): Promise<{className}> {
+        let {className}Repository = await AppDataSource
+            .getRepository({className}Entity)
+            .createQueryBuilder('{varName}')
+            .where('{varName}.{varName}Id = :{varName}Id', { {varName}Id })
+            .getOne()
+
+        return {className}Factory.jsonToModel({className}Repository);
+    }
+
+    async save{className}({varName}: {className}): Promise<{className}> {
+        let {varName}Json = {className}Factory.toJson({varName})
+
+        let {varName}Repository = await AppDataSource
+            .createQueryBuilder()
+            .insert()
+            .into({className}Entity)
+            .values([{varName}Json])
+            .orUpdate([''])
+            .execute()
+
+        {varName}Json.{varName}Id = {varName}Repository.identifiers[0].{varName}Id
+        return {className}Factory.jsonToModel({varName}Json)
+    }
+
+}

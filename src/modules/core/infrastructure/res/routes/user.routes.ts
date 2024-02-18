@@ -5,7 +5,6 @@ import { Router } from "express";
 const userRouter = Router()
 
 userRouter.get('/', [validateToken, getUsers])
-// userRouter.get('/params', getUsersByParams)
 userRouter.get('/:id', [validateToken, getUserByPk])
 userRouter.post('/', [validateToken, createUser])
 userRouter.put('/', [validateToken, updateUser])

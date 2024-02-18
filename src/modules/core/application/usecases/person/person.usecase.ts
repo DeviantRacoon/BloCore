@@ -26,6 +26,7 @@ export class PersonUseCase {
             throw new Error("Los datos de la persona no están completos")
         }
 
+        person.setStatus = Person.ENABLE
         const data = await this.personRepository.savePerson(person)
         return data
     }

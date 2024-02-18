@@ -1,0 +1,36 @@
+import { {className}Repository } from "../../../domain/repositories/{varName}.repository" 
+import { {className}Factory } from "../../factories/{varName}.factory" 
+import { {className} } from "../../../infrastructure/models/{varName}" 
+
+export class {className}UseCase {
+    private {varName}Repository: {className}Repository
+
+    constructor({varName}Repository: {className}Repository) { 
+        this.{varName}Repository = {varName}Repository
+    }
+
+    async get{className}s() {
+        const data = await this.{varName}Repository.get{className}s()
+        return data
+    }
+
+    async get{className}ByPk({varName}ID: number) {
+        const data = await this.{className}Repository.get{className}ByPk({varName}ID)
+        return data
+    }
+
+    async create{className}({varName}: {className}) {
+        const data = await this.{className}Repository.save{className}({varName})
+        return data
+    }
+
+    async update{className}({varName}: {className}) {
+        if (!{varName}.get{className}Id) { 
+            throw new Error('No ha sido enviado el ID del usuario');
+        }
+
+        const data = await this.{varName}Repository.save{className}({varName})
+        return data
+    }
+
+}

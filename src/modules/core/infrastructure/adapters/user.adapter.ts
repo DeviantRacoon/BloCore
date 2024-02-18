@@ -3,7 +3,9 @@ import { UserFactory } from "../../application/factories/user.factory"
 import { UserEntity } from "../../domain/entities/user.entity"
 import { AppDataSource } from "../../../../config/database/typeorm"
 import { User } from "../models/user"
+import dotenv from "../../../../config/dotenv"
 import bcrypt from 'bcrypt'
+dotenv.config();
 
 export class UserAdapter implements UserRepository {
 
@@ -35,10 +37,11 @@ export class UserAdapter implements UserRepository {
             .insert()
             .into(UserEntity)
             .values([userJson])
-            .orUpdate(['firstName', 'secondName', 'lastName', 'secondLastName', 'age', 'status'])
+            .orUpdate(['username', 'password', 'role', 'status'])
             .execute()
 
-        return UserFactory.jsonToModel(userRepository)
+        userJson.userId = userRepository.identifiers[0].userId
+        return UserFactory.jsonToModel(userJson)
     }
 
     async getUserByUsername(username: string) {
@@ -53,10 +56,13 @@ export class UserAdapter implements UserRepository {
     }
 
     async hasPassword(password: string) {
-        return await bcrypt.hash(password, 10)
+        const saltRounds = Number(process.env.SALT_ROUNDS)
+        const salt = await bcrypt.genSalt(saltRounds);
+        return await bcrypt.hash(password, salt)
     }
 
     async comparePassword(password: string, hash: string) {
+        let salt = process.env.SALT_ROUNDS
         return await bcrypt.compare(password, hash)
     }
 

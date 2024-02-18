@@ -31,8 +31,9 @@ export class UserUseCase {
         let hash = await this.userRepository.hasPassword(user.getPassword!)
         user.setPassword = hash
 
-        personUseCase.savePerson(user.getPerson!)
+        user.setPerson = await personUseCase.savePerson(user.getPerson!)
 
+        user.setStatus = User.ENABLE
         const data = await this.userRepository.saveUser(user)
         return data
     }
@@ -52,7 +53,7 @@ export class UserUseCase {
         }
 
         const userByUsername = await this.userRepository.getUserByUsername(user.getUsername)
-        const isLogin = this.userRepository.comparePassword(user.getPassword, userByUsername.getPassword!)
+        const isLogin = await this.userRepository.comparePassword(user.getPassword, userByUsername.getPassword!)
 
         if (!isLogin) { 
             throw new Error("usuario/contraseña incorrectos")
@@ -61,7 +62,7 @@ export class UserUseCase {
         let token = Token.getJwtToken(user)
         user.setPassword = undefined
 
-        const data = await this.userRepository.saveUser(user)
+        // const data = await this.userRepository.saveUser(user)
         return token
     }
 

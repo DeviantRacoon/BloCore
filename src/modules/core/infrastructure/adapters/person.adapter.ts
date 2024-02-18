@@ -36,7 +36,8 @@ export class PersonAdapter implements PersonRepository {
             .orUpdate(['firstName', 'secondName', 'lastName', 'secondLastName', 'age', 'status'])
             .execute()
 
-        return PersonFactory.jsonToModel(personRepository)
+        personJson.personId = personRepository.identifiers[0].personId
+        return PersonFactory.jsonToModel(personJson)
     }
 
 }

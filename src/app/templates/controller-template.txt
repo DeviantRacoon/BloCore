@@ -1,0 +1,78 @@
+import { Request, Response } from "express";
+
+import {varName}UseCase from "../../../application/usecases/{varName}";
+import { {className}Factory } from "../../../application/factories/{varName}.factory"; 
+import { {className} } from "../../models/{varName}"; 
+
+
+export const get{className}s = async (request: Request, response: Response) => {
+    try {
+        const data = await {varName}UseCase.get{className}s();
+
+        return response.json({
+            ok: true,
+            data,
+        });
+    } catch (error: any) {
+        return response.json({
+            ok: false,
+            error: error.message,
+        });
+    }
+};
+
+export const get{className}ByPk = async (request: Request, response: Response) => {
+    try {
+        let id = Number(request.params.id)
+        const data = await {varName}UseCase.get{className}ByPk(id);
+
+        return response.json({
+            ok: true,
+            data,
+        });
+
+    } catch (error: any) {
+        return response.json({
+            ok: false,
+            error: error.message,
+        });
+    }
+};
+
+export const create{className} = async (request: Request, response: Response) => {
+    try {
+        let {varName} = new {className}();
+        {className}Factory.assignment({varName}, request.body);
+        const data = await {varName}UseCase.create{className}({varName});
+
+        return response.json({
+            ok: true,
+            data,
+        });
+
+    } catch (error: any) {
+        return response.json({
+            ok: false,
+            error: error.message,
+        });
+    }
+};
+
+export const update{className} = async (request: Request, response: Response) => {
+    try {
+        let {varName} = new {className}();
+        {className}Factory.assignment({varName}, request.body);
+        const data = await {varName}UseCase.update{className}({varName});
+
+        return response.json({
+            ok: true,
+            data,
+        });
+
+    } catch (error: any) {
+        return response.json({
+            ok: false,
+            error: error.message,
+        });
+    }
+};
