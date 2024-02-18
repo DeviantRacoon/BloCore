@@ -4,7 +4,6 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Commits](https://img.shields.io/github/commit-activity/t/JHectorZ/BloCore)](https://github.com/JHectorZ/BloCore/commits)
 [![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](/LICENSE)
 
 </div>
