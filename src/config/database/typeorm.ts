@@ -3,6 +3,7 @@ import { DataSource } from "typeorm";
 // Core
 import { PersonEntity } from "../../modules/core/domain/entities/person.entity";
 import { UserEntity } from "../../modules/core/domain/entities/user.entity";
+import { RoleEntity } from "../../modules/core/domain/entities/role.entity"; 
 
 // Academic Management
 // import { StudentEntity } from "../../modules/academic-management/domain/entities/student.entity";
@@ -21,6 +22,7 @@ export const AppDataSource = new DataSource({
     entities: [
         PersonEntity,
         UserEntity,
+        RoleEntity,
     ],
     subscribers: [],
     migrations: [],

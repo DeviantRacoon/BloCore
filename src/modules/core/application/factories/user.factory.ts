@@ -1,5 +1,6 @@
 import { User } from "../../infrastructure/models/user";
 import { PersonFactory } from "./person.factory";
+import { RoleFactory } from "./role.factory"; 
 
 export class UserFactory {
 
@@ -30,7 +31,7 @@ export class UserFactory {
         }
 
         if (fields.role) {
-            user.setRole = fields.role;
+            user.setRole = RoleFactory.jsonToModel(fields.role);
         } else {
             user.setRole = undefined;
         }
@@ -82,7 +83,7 @@ export class UserFactory {
         }
 
         if (fields.role) {
-            user.setRole = fields.role;
+            user.setRole = RoleFactory.jsonToModel(fields.role);
         } else {
             user.setRole = undefined;
         }
@@ -113,7 +114,7 @@ export class UserFactory {
             userId: user.getUserId,
             username: user.getUsername,
             password: user.getPassword,
-            role: user.getRole,
+            role: RoleFactory.toJson(user.getRole!),
             person: PersonFactory.toJson(user.getPerson!),
             status: user.getStatus,
             dateRegister: user.getDateRegister,
@@ -124,8 +125,9 @@ export class UserFactory {
     static checkUndefinedFields(user: User) {
         const fields = [
             user.getPerson,
+            user.getRole,
             user.getUsername,
-            user.getPassword
+            user.getPassword 
         ];
 
         return fields.some(field => field === undefined);

@@ -20,6 +20,13 @@ export class {className}UseCase {
     }
 
     async create{className}({varName}: {className}) {
+        let hasUndefinedFields = {className}Factory.checkUndefinedFields({varName});
+
+        if (hasUndefinedFields) { 
+            throw new Error("Los datos no están completos")
+        }
+
+        {varName}.setStatus = {className}.ENABLE
         const data = await this.{varName}Repository.save{className}({varName})
         return data
     }

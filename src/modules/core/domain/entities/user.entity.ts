@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn, OneToOne } from "typeorm"
 import { PersonEntity } from "./person.entity"
+import { RoleEntity } from "./role.entity" 
 
 @Entity('catalog_user')
 export class UserEntity extends BaseEntity {
@@ -13,11 +14,12 @@ export class UserEntity extends BaseEntity {
     @Column()
     password!: string
 
-    @Column({ default: null })
-    role!: number
+    @OneToOne(() => RoleEntity)
+    @JoinColumn({ name: "role" })
+    role!: RoleEntity
 
-    @ManyToOne(() => PersonEntity, (personEntity) => personEntity.users)
-    @JoinColumn({ name: "personId" })
+    @ManyToOne(() => PersonEntity, (personEntity: PersonEntity) => personEntity.users)
+    @JoinColumn({ name: "person" })
     person!: PersonEntity;
 
     @Column()

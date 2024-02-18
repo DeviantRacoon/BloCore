@@ -1,4 +1,5 @@
 import personUseCase from "../person/person.index"
+import roleUseCase from "../role"
 import Token from "../../../../../config/token"
 import { UserRepository } from "../../../domain/repositories/user.repository" 
 import { UserFactory } from "../../factories/user.factory" 
@@ -32,6 +33,7 @@ export class UserUseCase {
         user.setPassword = hash
 
         user.setPerson = await personUseCase.savePerson(user.getPerson!)
+        user.setRole = await roleUseCase.getRoleByPk(user.getRole?.getRoleId!)
 
         user.setStatus = User.ENABLE
         const data = await this.userRepository.saveUser(user)
@@ -43,6 +45,7 @@ export class UserUseCase {
             throw new Error('No ha sido enviado el ID del usuario');
         }
 
+        user.setRole = await roleUseCase.getRoleByPk(user.getRole?.getRoleId!)
         const data = await this.userRepository.saveUser(user)
         return data
     }

@@ -31,16 +31,11 @@ export class UserAdapter implements UserRepository {
 
     async saveUser(user: User): Promise<User> {
         let userJson = UserFactory.toJson(user)
-
         let userRepository = await AppDataSource
-            .createQueryBuilder()
-            .insert()
-            .into(UserEntity)
-            .values([userJson])
-            .orUpdate(['username', 'password', 'role', 'status'])
-            .execute()
+            .getRepository(UserEntity)
+            .save(userJson)
 
-        userJson.userId = userRepository.identifiers[0].userId
+        userJson.userId = userRepository.userId
         return UserFactory.jsonToModel(userJson)
     }
 

@@ -30,6 +30,6 @@ export class PersonEntity extends BaseEntity{
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
     dateUpdate!: Date;
 
-    @OneToMany(() => UserEntity, (userEntity) => userEntity.person)
+    @OneToMany(() => UserEntity, (userEntity: UserEntity) => userEntity.person)
     users!: UserEntity[]
 }

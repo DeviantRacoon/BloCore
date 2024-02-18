@@ -33,7 +33,7 @@ export class {className}Adapter implements {className}Repository {
             .insert()
             .into({className}Entity)
             .values([{varName}Json])
-            .orUpdate([''])
+            .orUpdate(['status'])
             .execute()
 
         {varName}Json.{varName}Id = {varName}Repository.identifiers[0].{varName}Id

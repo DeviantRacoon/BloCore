@@ -24,19 +24,14 @@ export class PersonAdapter implements PersonRepository {
 
         return PersonFactory.jsonToModel(personRepository)
     }
-    
+
     async savePerson(person: Person): Promise<Person> {
         let personJson = PersonFactory.toJson(person)
-
         let personRepository = await AppDataSource
-            .createQueryBuilder()
-            .insert()
-            .into(PersonEntity)
-            .values([personJson])
-            .orUpdate(['firstName', 'secondName', 'lastName', 'secondLastName', 'age', 'status'])
-            .execute()
+            .getRepository(PersonEntity)
+            .save(personJson)
 
-        personJson.personId = personRepository.identifiers[0].personId
+        personJson.personId = personRepository.personId
         return PersonFactory.jsonToModel(personJson)
     }
 

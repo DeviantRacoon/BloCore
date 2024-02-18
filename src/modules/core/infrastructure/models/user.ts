@@ -1,4 +1,5 @@
 import { Person } from "./person";
+import { Role } from "./role"; 
 
 export class User {
 
@@ -11,7 +12,7 @@ export class User {
     private userId: number | undefined
     private username: string | undefined
     private password: string | undefined
-    private role: number | undefined
+    private role: Role | undefined
     private person: Person | undefined
     private status: number | undefined
     private dateRegister: string | undefined
@@ -42,11 +43,11 @@ export class User {
         this.password = value
     }
 
-    public get getRole(): number | undefined {
+    public get getRole(): Role | undefined {
         return this.role
     }
 
-    public set setRole(value: number | undefined) {
+    public set setRole(value: Role | undefined) {
         this.role = value
     }
 
