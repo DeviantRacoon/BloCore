@@ -2,9 +2,9 @@ import * as fs from 'fs';
 import path from 'path';
 import { templates } from './templates/template';
 
-async function generateFiles(moduleName: string, name: string) {
-    let validModule =  fs.existsSync(`src/modules/${moduleName}`);
-    
+function generateFiles(moduleName: string, name: string) {
+    let validModule = fs.existsSync(`src/modules/${moduleName}`);
+
     if (!validModule) {
         console.error(`Error: Module '${moduleName}' not found.`);
         return;
@@ -35,11 +35,55 @@ async function generateFiles(moduleName: string, name: string) {
     }
 }
 
-if (process.argv.length === 4) {
-    const moduleName = process.argv[2];
-    const name = process.argv[3];
+function createModule(nameModule: string) {
+    let directory = `src/modules/${nameModule}`;
 
-    generateFiles(moduleName, name);
+    try {
+        fs.mkdirSync(directory);
+        fs.mkdirSync(directory + '/domain');
+        fs.mkdirSync(directory + '/application');
+        fs.mkdirSync(directory + '/infrastructure');
+        fs.mkdirSync(directory + '/application/usecases');
+        fs.mkdirSync(directory + '/application/factories');
+        fs.mkdirSync(directory + '/domain/entities');
+        fs.mkdirSync(directory + '/domain/repositories');
+        fs.mkdirSync(directory + '/infrastructure/adapters');
+        fs.mkdirSync(directory + '/infrastructure/models');
+        fs.mkdirSync(directory + '/infrastructure/res');
+        fs.mkdirSync(directory + '/infrastructure/res/controllers');
+        fs.mkdirSync(directory + '/infrastructure/res/routes');
+        console.log(`Module ${nameModule} created successfully.`);
+
+    } catch (error) {
+        console.error(`Error generating module:`, error);
+
+    }
+}
+
+
+
+if (process.argv.length === 5) {
+    const type = process.argv[2];
+    const name = process.argv[3];
+    const moduleName = process.argv[4];
+
+    if (type === 'module') {
+        createModule(name);
+
+    } else if (type === 'models') {
+        console.log(moduleName, name);
+        generateFiles(moduleName, name);
+
+    } else {
+        console.error(`Error: Invalid type. Please use 'module' or 'models'.`);
+    }
+
 } else {
-    console.error('Usage: npm run create [moduleName] [name]');
+    console.error(`Incorrect usage. Please follow the format:
+    npm run create [module / models] [name] [moduleName]
+  
+  Example usage:
+    npm run create module myModule
+    or
+    npm run create models myModel myModule`);
 }
