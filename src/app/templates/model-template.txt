@@ -13,11 +13,11 @@ export class {className} {
     private dateUpdate: string | undefined
 
 
-    public get get{varName}Id(): number | undefined {
+    public get get{className}Id(): number | undefined {
         return this.{varName}Id
     }
 
-    public set set{varName}Id(value: number | undefined) {
+    public set set{className}Id(value: number | undefined) {
         this.{varName}Id = value
     }
 

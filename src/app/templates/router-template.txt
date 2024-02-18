@@ -1,4 +1,4 @@
-import { get{className}s, get{className}ByPk, create{className}, update{className} } from "../controller/{varName}.controller";
+import { get{className}s, get{className}ByPk, create{className}, update{className} } from "../controllers/{varName}.controller";
 import { validateToken } from "../../../../../config/middleware/token.middleware"; 
 import { Router } from "express";
 

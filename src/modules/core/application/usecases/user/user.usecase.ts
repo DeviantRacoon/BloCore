@@ -1,4 +1,4 @@
-import personUseCase from "../person"
+import personUseCase from "../person/person.index"
 import Token from "../../../../../config/token"
 import { UserRepository } from "../../../domain/repositories/user.repository" 
 import { UserFactory } from "../../factories/user.factory" 

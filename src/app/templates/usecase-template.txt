@@ -15,12 +15,12 @@ export class {className}UseCase {
     }
 
     async get{className}ByPk({varName}ID: number) {
-        const data = await this.{className}Repository.get{className}ByPk({varName}ID)
+        const data = await this.{varName}Repository.get{className}ByPk({varName}ID)
         return data
     }
 
     async create{className}({varName}: {className}) {
-        const data = await this.{className}Repository.save{className}({varName})
+        const data = await this.{varName}Repository.save{className}({varName})
         return data
     }
 

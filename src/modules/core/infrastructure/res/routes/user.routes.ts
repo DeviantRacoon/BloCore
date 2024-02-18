@@ -1,4 +1,4 @@
-import { getUsers, getUserByPk, createUser, updateUser, login } from "../controller/user.controller";
+import { getUsers, getUserByPk, createUser, updateUser, login } from "../controllers/user.controller";
 import { validateToken } from "../../../../../config/middleware/token.middleware"; 
 import { Router } from "express";
 

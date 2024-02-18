@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import {varName}UseCase from "../../../application/usecases/{varName}";
+import {varName}UseCase from "../../../application/usecases/{varName}/{varName}.index";
 import { {className}Factory } from "../../../application/factories/{varName}.factory"; 
 import { {className} } from "../../models/{varName}"; 
 

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import userUseCase from "../../../application/usecases/user";
+import userUseCase from "../../../application/usecases/user/user.index";
 import { UserFactory } from "../../../application/factories/user.factory"; 
 import { User } from "../../models/user"; 
 

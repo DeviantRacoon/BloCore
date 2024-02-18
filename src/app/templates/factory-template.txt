@@ -69,7 +69,7 @@ export class {className}Factory {
     }
 
     static checkUndefinedFields({varName}: {className}) {
-        const fields = [];
+        const fields: any[] = [];
 
         return fields.some(field => field === undefined);
     }
