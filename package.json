@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
-    "create": "node src/app/sources.js"
+    "create": "ts-node src/app/create-models.ts"
   },
   "keywords": [],
   "author": "",
