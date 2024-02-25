@@ -12,6 +12,9 @@ export class UserEntity extends BaseEntity {
     username!: string
 
     @Column()
+    email!: string
+
+    @Column()
     password!: string
 
     @OneToOne(() => RoleEntity)

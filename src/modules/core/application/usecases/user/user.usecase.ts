@@ -45,6 +45,11 @@ export class UserUseCase {
             throw new Error('No ha sido enviado el ID del usuario');
         }
 
+        if (user.getPassword) {
+            let hash = await this.userRepository.hasPassword(user.getPassword)
+            user.setPassword = hash
+        }
+
         user.setRole = await roleUseCase.getRoleByPk(user.getRole?.getRoleId!)
         const data = await this.userRepository.saveUser(user)
         return data

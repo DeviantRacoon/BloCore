@@ -10,23 +10,24 @@ dotenv.config();
 export class UserAdapter implements UserRepository {
 
     async getUsers(): Promise<User[]> {
-        let UserRepository = await AppDataSource
+        let userRepository = await AppDataSource
             .getRepository(UserEntity)
             .createQueryBuilder('user')
             .getMany()
 
-        return UserFactory.arrayJsonToModelArray(UserRepository)
+        return UserFactory.arrayJsonToModelArray(userRepository)
     }
 
     async getUserByPk(userId: number): Promise<User> {
-        let UserRepository = await AppDataSource
+        let userRepository = await AppDataSource
             .getRepository(UserEntity)
             .createQueryBuilder('user')
             .leftJoinAndSelect('user.person', 'person')
+            .leftJoinAndSelect('user.role', 'role')
             .where('user.userId = :userId', { userId })
-            .getOne()
+            .getOneOrFail()
 
-        return UserFactory.jsonToModel(UserRepository);
+        return UserFactory.jsonToModel(userRepository);
     }
 
     async saveUser(user: User): Promise<User> {

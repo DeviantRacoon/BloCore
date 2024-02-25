@@ -24,6 +24,12 @@ export class UserFactory {
             user.setUsername = undefined;
         }
 
+        if (fields.email) {
+            user.setEmail = fields.email;
+        } else {
+            user.setEmail = undefined;
+        }
+
         if (fields.password) {
             user.setPassword = fields.password;
         } else {
@@ -76,6 +82,12 @@ export class UserFactory {
             user.setUsername = undefined;
         }
 
+        if (fields.email) {
+            user.setEmail = fields.email;
+        } else {
+            user.setEmail = undefined;
+        }
+
         if (fields.password) {
             user.setPassword = fields.password;
         } else {
@@ -113,6 +125,7 @@ export class UserFactory {
         return {
             userId: user.getUserId,
             username: user.getUsername,
+            email: user.getEmail,
             password: user.getPassword,
             role: RoleFactory.toJson(user.getRole!),
             person: PersonFactory.toJson(user.getPerson!),
@@ -127,7 +140,8 @@ export class UserFactory {
             user.getPerson,
             user.getRole,
             user.getUsername,
-            user.getPassword 
+            user.getPassword, 
+            user.getEmail 
         ];
 
         return fields.some(field => field === undefined);

@@ -11,6 +11,7 @@ export class User {
 
     private userId: number | undefined
     private username: string | undefined
+    private email: string | undefined
     private password: string | undefined
     private role: Role | undefined
     private person: Person | undefined
@@ -33,6 +34,14 @@ export class User {
 
     public set setUsername(value: string | undefined) {
         this.username = value
+    }
+
+    public get getEmail(): string | undefined {
+        return this.email
+    }
+
+    public set setEmail(value: string | undefined) {
+        this.email = value
     }
 
     public get getPassword(): string | undefined {

@@ -12,6 +12,10 @@ export class Person {
     private lastName: string | undefined;
     private secondLastName: string | undefined;
     private age: number | undefined;
+    private birthDate: string | undefined;
+    private cell: string | undefined;
+    private gender: string | undefined;
+    private curp: string | undefined;
     private status: number | undefined
     private dateRegister: string | undefined
     private dateUpdate: string | undefined
@@ -62,6 +66,38 @@ export class Person {
 
     public set setAge(value: number | undefined) {
         this.age = value;
+    }
+
+    public get getBirthDate(): string | undefined {
+        return this.birthDate;
+    }
+
+    public set setBirthDate(value: string | undefined) {
+        this.birthDate = value;
+    }
+
+    public get getCell(): string | undefined {
+        return this.cell;
+    }
+
+    public set setCell(value: string | undefined) {
+        this.cell = value;
+    }
+
+    public get getGender(): string | undefined {
+        return this.gender;
+    }
+
+    public set setGender(value: string | undefined) {
+        this.gender = value;
+    }
+
+    public get getCurp(): string | undefined {
+        return this.curp;
+    }
+
+    public set setCurp(value: string | undefined) {
+        this.curp = value;
     }
 
     public get getStatus(): number | undefined {

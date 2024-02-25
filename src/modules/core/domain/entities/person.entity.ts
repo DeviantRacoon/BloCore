@@ -22,6 +22,18 @@ export class PersonEntity extends BaseEntity{
     age!: number 
 
     @Column()
+    birthDate!: Date
+
+    @Column()
+    cell!: string
+
+    @Column()
+    gender!: string
+
+    @Column()
+    curp!: string
+
+    @Column()
     status!: number
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

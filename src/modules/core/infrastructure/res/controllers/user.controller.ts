@@ -83,7 +83,7 @@ export const login = async (request: Request, response: Response) => {
         UserFactory.assignment(user, request.body);
         const token = await userUseCase.login(user)
 
-        response.setHeader('Authorization', `Bearer ${token}`)
+        response.setHeader('Authorization', token)
         return response.json({
             ok: true,
             data: 'Login successful'

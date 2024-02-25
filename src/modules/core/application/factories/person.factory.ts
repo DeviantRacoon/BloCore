@@ -40,6 +40,30 @@ export class PersonFactory {
             person.setAge = undefined;
         }
 
+        if (fields.birthDate) {
+            person.setBirthDate = fields.birthDate;
+        } else {
+            person.setBirthDate = undefined;
+        }
+
+        if (fields.cell) {
+            person.setCell = fields.cell;
+        } else {
+            person.setCell = undefined;
+        }
+
+        if (fields.gender) {
+            person.setGender = fields.gender;
+        } else {
+            person.setGender = undefined;
+        }
+
+        if (fields.curp) {
+            person.setCurp = fields.curp;
+        } else {
+            person.setCurp = undefined;
+        }
+
         if (fields.status) {
             person.setStatus = fields.status;
         } else {
@@ -97,6 +121,30 @@ export class PersonFactory {
         } else {
             person.setAge = undefined;
         }
+        
+        if (fields.birthDate) {
+            person.setBirthDate = fields.birthDate;
+        } else {
+            person.setBirthDate = undefined;
+        }
+
+        if (fields.cell) {
+            person.setCell = fields.cell;
+        } else {
+            person.setCell = undefined;
+        }
+
+        if (fields.gender) {
+            person.setGender = fields.gender;
+        } else {
+            person.setGender = undefined;
+        }
+
+        if (fields.curp) {
+            person.setCurp = fields.curp;
+        } else {
+            person.setCurp = undefined;
+        }
 
         if (fields.status) {
             person.setStatus = fields.status;
@@ -127,6 +175,10 @@ export class PersonFactory {
             lastName: person.getLastName,
             secondLastName: person.getSecondLastName,
             age: person.getAge,
+            birthDate: person.getBirthDate,
+            cell: person.getCell,
+            gender: person.getGender,
+            curp: person.getCurp,
             status: person.getStatus,
             dateRegister: person.getDateRegister,
             dateUpdate: person.getDateUpdate,
@@ -140,6 +192,7 @@ export class PersonFactory {
             person.getLastName,
             person.getSecondLastName,
             person.getAge,
+            person.getGender
         ];
 
         return fields.some(field => field === undefined);

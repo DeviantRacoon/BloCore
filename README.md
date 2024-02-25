@@ -12,17 +12,16 @@
 
 ## Tabla de contenido
 
-- Descripción
-- Tecnologías
-- Objetivo
-- Componentes
-- Estado
-- Instalación
-- Comandos
-- Contribución
-- Licencia
-- Contacto
-- Recursos adicionales
+- [Descripción](#descripcion)
+- [Tecnologías](#tecnologias)
+- [Objetivo](#objetivo)
+- [Componentes](#componentes)
+- [Estado](#estado)
+- [Instalación](#instalacion)
+- [Comandos](#comandos)
+- [Contribución](#contribucion)
+- [Licencia](#licencia)
+- [Contacto](#contacto)
 
 ---
 

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
-    "start": "pm2 start ecosystem.config.js",
+    "start": "pm2 start ecosystem.config.json",
     "create": "ts-node src/app/create-models.ts"
   },
   "keywords": [],
