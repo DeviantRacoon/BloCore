@@ -16,8 +16,8 @@ export class User {
     private role: Role | undefined
     private person: Person | undefined
     private status: number | undefined
-    private dateRegister: string | undefined
-    private dateUpdate: string | undefined
+    private dateRegister: Date | undefined
+    private dateUpdate: Date | undefined
 
 
     public get getUserId(): number | undefined {
@@ -76,19 +76,19 @@ export class User {
         this.status = value
     }
 
-    public get getDateRegister(): string | undefined {
+    public get getDateRegister(): Date | undefined {
         return this.dateRegister
     }
 
-    public set setDateRegister(value: string | undefined) {
+    public set setDateRegister(value: Date | undefined) {
         this.dateRegister = value
     }
 
-    public get getDateUpdate(): string | undefined {
+    public get getDateUpdate(): Date | undefined {
         return this.dateUpdate
     }
 
-    public set setDateUpdate(value: string | undefined) {
+    public set setDateUpdate(value: Date | undefined) {
         this.dateUpdate = value
     }
 

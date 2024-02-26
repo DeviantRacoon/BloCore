@@ -60,9 +60,7 @@ function createModule(nameModule: string) {
     }
 }
 
-
-
-if (process.argv.length === 5) {
+if (process.argv.length >= 4) {
     const type = process.argv[2];
     const name = process.argv[3];
     const moduleName = process.argv[4];

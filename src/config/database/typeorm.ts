@@ -5,10 +5,9 @@ import { PersonEntity } from "../../modules/core/domain/entities/person.entity";
 import { UserEntity } from "../../modules/core/domain/entities/user.entity";
 import { RoleEntity } from "../../modules/core/domain/entities/role.entity"; 
 
-// Academic Management
-// import { StudentEntity } from "../../modules/academic-management/domain/entities/student.entity";
-// import { TeacherEntity } from "../../modules/academic-management/domain/entities/teacher.entity";
-// import { SubjectEntity } from "../../modules/academic-management/domain/entities/subject.entity";
+// Menu
+import { MenuEntity } from "../../modules/menu/domain/entities/menu.entity";
+import { DisplayEntity } from "../../modules/menu/domain/entities/display.entity"; 
 
 export const AppDataSource = new DataSource({
     type: "mariadb",
@@ -23,6 +22,8 @@ export const AppDataSource = new DataSource({
         PersonEntity,
         UserEntity,
         RoleEntity,
+        MenuEntity,
+        DisplayEntity,
     ],
     subscribers: [],
     migrations: [],

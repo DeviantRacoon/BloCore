@@ -13,6 +13,8 @@ export class UserAdapter implements UserRepository {
         let userRepository = await AppDataSource
             .getRepository(UserEntity)
             .createQueryBuilder('user')
+            .leftJoinAndSelect('user.person', 'person')
+            .leftJoinAndSelect('user.role', 'role')
             .getMany()
 
         return UserFactory.arrayJsonToModelArray(userRepository)
