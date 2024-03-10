@@ -1,0 +1,18 @@
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+
+@Entity('catalog_{varName}')
+export class {className}Entity extends BaseEntity {
+
+    @PrimaryGeneratedColumn()
+    {varName}Id!: number
+
+    @Column()
+    status!: number
+
+    @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+    dateRegister!: Date;
+
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
+    dateUpdate!: Date;
+
+}

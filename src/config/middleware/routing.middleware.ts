@@ -1,10 +1,10 @@
 // Core
-import userRouter from "../../modules/core/infrastructure/res/routes/user.routes";
-import roleRouter from "../../modules/core/infrastructure/res/routes/role.routes";
+import userRouter from "../../app/core/infrastructure/res/routes/user.routes";
+import roleRouter from "../../app/core/infrastructure/res/routes/role.routes";
 
 // Menu
-import menuRouter from "../../modules/menu/infrastructure/res/routes/menu.routes";
-import displayRouter from "../../modules/menu/infrastructure/res/routes/display.routes";
+import menuRouter from "../../app/menu/infrastructure/res/routes/menu.routes";
+import displayRouter from "../../app/menu/infrastructure/res/routes/display.routes";
 
 export const routingModule = (server: any) => {
   server.app.use("/user", userRouter);

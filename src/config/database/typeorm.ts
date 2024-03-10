@@ -1,13 +1,13 @@
 import { DataSource } from "typeorm";
 
 // Core
-import { PersonEntity } from "../../modules/core/domain/entities/person.entity";
-import { UserEntity } from "../../modules/core/domain/entities/user.entity";
-import { RoleEntity } from "../../modules/core/domain/entities/role.entity"; 
+import { PersonEntity } from "../../app/core/domain/entities/person.entity";
+import { UserEntity } from "../../app/core/domain/entities/user.entity";
+import { RoleEntity } from "../../app/core/domain/entities/role.entity"; 
 
 // Menu
-import { MenuEntity } from "../../modules/menu/domain/entities/menu.entity";
-import { DisplayEntity } from "../../modules/menu/domain/entities/display.entity"; 
+import { MenuEntity } from "../../app/menu/domain/entities/menu.entity";
+import { DisplayEntity } from "../../app/menu/domain/entities/display.entity"; 
 
 export const AppDataSource = new DataSource({
     type: "mariadb",
