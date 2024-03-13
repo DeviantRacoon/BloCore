@@ -81,7 +81,7 @@ Para instalar BloCoreTs, sigue estos pasos:
 1. Clona el repositorio de GitHub:
 
 ```
-git clone https://github.com/tu-nombre-de-usuario/BloCoreTs.git
+git clone https://github.com/JHectorZ/BloCoreTs.git
 ```
 
 2. Accede al directorio del proyecto:

@@ -13,6 +13,7 @@ export class User {
     private username: string | undefined
     private email: string | undefined
     private password: string | undefined
+    private token: string | undefined
     private role: Role | undefined
     private person: Person | undefined
     private status: number | undefined
@@ -50,6 +51,14 @@ export class User {
 
     public set setPassword(value: string | undefined) {
         this.password = value
+    }
+
+    public get getToken(): string | undefined {
+        return this.token
+    }
+
+    public set setToken(value: string | undefined) {
+        this.token = value
     }
 
     public get getRole(): Role | undefined {

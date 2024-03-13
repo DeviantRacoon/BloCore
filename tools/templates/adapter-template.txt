@@ -42,7 +42,6 @@ export class {className}Adapter implements {className}Repository {
 
     async save{className}({varName}: {className}): Promise<{className}> {
         let {varName}Json = {className}Factory.toJson({varName})
-        console.log({varName}Json);
         
         let {varName}Repository = await AppDataSource
             .getRepository({className}Entity)

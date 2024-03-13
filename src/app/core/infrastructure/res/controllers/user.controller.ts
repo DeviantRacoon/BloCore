@@ -104,17 +104,18 @@ export const login = async (request: Request, response: Response) => {
     try {
         let user = new User();
         UserFactory.assignment(user, request.body);
-        const token = await userUseCase.login(user)
+        const currentUser = await userUseCase.login(user)
 
-        response.setHeader('Authorization', token)
+        response.setHeader('Authorization', currentUser.getToken!)
         return response.json({
             ok: true,
-            data: 'Login successful'
+            data: currentUser
         })
     } catch (error: any) {
         return response.json({
             ok: false,
-            error: "usuario/contraseña incorrectos"
+            error: "usuario/contraseña incorrectos",
+            message: error.message
         })
     }
 };

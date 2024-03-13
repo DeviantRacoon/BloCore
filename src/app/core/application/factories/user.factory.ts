@@ -38,6 +38,12 @@ export class UserFactory {
             user.setPassword = undefined;
         }
 
+        if (fields.token) {
+            user.setToken = fields.token;
+        } else {
+            user.setToken = undefined;
+        }
+
         if (fields.role) {
             user.setRole = RoleFactory.jsonToModel(fields.role);
         } else {
@@ -76,6 +82,12 @@ export class UserFactory {
             user.setPerson = PersonFactory.jsonToModel(fields.person);
         } else {
             user.setPerson = undefined;
+        }
+
+        if (fields.token) {
+            user.setToken = fields.token;
+        } else {
+            user.setToken = undefined;
         }
 
         if (fields.username) {
@@ -129,6 +141,7 @@ export class UserFactory {
             username: user.getUsername,
             email: user.getEmail,
             password: user.getPassword,
+            token: user.getToken,
             role: user.getRole ? RoleFactory.toJson(user.getRole!) : undefined,
             person: user.getPerson ? PersonFactory.toJson(user.getPerson!) : undefined,
             status: user.getStatus,

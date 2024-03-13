@@ -15,7 +15,7 @@ export class MenuAdapter implements MenuRepository {
         let menuRepository = await AppDataSource
             .getRepository(MenuEntity)
             .createQueryBuilder('menu')
-            // .leftJoinAndSelect('menu.displays', 'displays')
+            .leftJoinAndSelect('menu.displays', 'displays')
             .getMany()
 
         return MenuFactory.arrayJsonToModelArray(menuRepository)

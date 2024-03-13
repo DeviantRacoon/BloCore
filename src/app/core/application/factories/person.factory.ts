@@ -193,7 +193,10 @@ export class PersonFactory {
             person.getLastName,
             person.getSecondLastName,
             person.getAge,
-            person.getGender
+            person.getGender,
+            person.getBirthDate,
+            person.getCell,
+            person.getCurp,
         ];
 
         return fields.some(field => field === undefined);

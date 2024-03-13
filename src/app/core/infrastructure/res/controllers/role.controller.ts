@@ -85,7 +85,6 @@ export const updateRole = async (request: Request, response: Response) => {
     try {
         let role = new Role();
         RoleFactory.assignment(role, request.body);
-        console.log(role);
         const data = await roleUseCase.updateRole(role);
 
         return response.json({

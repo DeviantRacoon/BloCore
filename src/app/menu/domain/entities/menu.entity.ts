@@ -16,7 +16,7 @@ export class MenuEntity extends BaseEntity {
     @Column()
     status!: number
 
-    @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     dateRegister!: Date;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })

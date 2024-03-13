@@ -49,7 +49,7 @@ export class UserAdapter implements UserRepository {
         }
 
         const paginatedResult = await this.paginationService.paginate(userRepository, { page });
-        
+
         const data = UserFactory.arrayJsonToModelArray(paginatedResult.data);
         return { ...paginatedResult, data };
     }
@@ -80,8 +80,9 @@ export class UserAdapter implements UserRepository {
         const user = await AppDataSource
             .getRepository(UserEntity)
             .createQueryBuilder('user')
-            .select(['user.username', 'user.password'])
+            .select(['user.userId', 'user.username', 'user.email', 'user.password'])
             .where('BINARY user.username = :username', { username })
+            .andWhere('user.status = :status', { status: User.ENABLE })
             .getOneOrFail()
 
         return UserFactory.jsonToModel(user)

@@ -16,10 +16,9 @@ export class RoleEntity extends BaseEntity {
     @OneToMany(() => UserEntity, (userEntity: UserEntity) => userEntity.role)
     users!: UserEntity[]
 
-    @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     dateRegister!: Date;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
     dateUpdate!: Date;
-
 }

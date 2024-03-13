@@ -76,12 +76,11 @@ export class UserUseCase {
         if (!isLogin) {
             throw new Error("usuario/contraseña incorrectos")
         }
+        
+        userByUsername.setToken = Token.getJwtToken(user)
+        userByUsername.setPassword = undefined
 
-        let token = Token.getJwtToken(user)
-        user.setPassword = undefined
-
-        // const data = await this.userRepository.saveUser(user)
-        return token
+        return userByUsername
     }
 
 }
