@@ -101,6 +101,7 @@ export const updateUser = async (request: Request, response: Response) => {
 };
 
 export const login = async (request: Request, response: Response) => {
+    
     try {
         let user = new User();
         UserFactory.assignment(user, request.body);

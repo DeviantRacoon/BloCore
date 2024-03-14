@@ -1,3 +1,5 @@
+import path from "path";
+
 // Core
 import userRouter from "../../app/core/infrastructure/res/routes/user.routes";
 import roleRouter from "../../app/core/infrastructure/res/routes/role.routes";
@@ -7,6 +9,9 @@ import menuRouter from "../../app/menu/infrastructure/res/routes/menu.routes";
 import displayRouter from "../../app/menu/infrastructure/res/routes/display.routes";
 
 export const routingModule = (server: any) => {
+  server.app.get("/", (req: any, res: any) => {
+    res.sendFile(path.join( __dirname, "../../../src/public/views/index.html"))});
+
   server.app.use("/user", userRouter);
   server.app.use("/role", roleRouter);
   server.app.use("/menu", menuRouter);
@@ -15,4 +20,4 @@ export const routingModule = (server: any) => {
   return (req: any, response: any, next: any) => {
     next();
   };
-};
+}; 
