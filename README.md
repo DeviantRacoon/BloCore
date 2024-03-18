@@ -1,5 +1,5 @@
-<h1 align="center">BloCoreTs</h1>
 
+<h1 align="center">BloCoreTs</h1>
 
 <div align="center">
 
@@ -10,123 +10,123 @@
 
 ---
 
-## Tabla de contenido
+## Table of Contents
 
-- [Descripción](#descripcion)
-- [Tecnologías](#tecnologias)
-- [Objetivo](#objetivo)
-- [Componentes](#componentes)
-- [Estado](#estado)
-- [Instalación](#instalacion)
-- [Comandos](#comandos)
-- [Contribución](#contribucion)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
-
----
-
-## Descripción <a name = "descripcion"></a>
-
-BloCoreTs es un backend con una arquitectura Clean y altamente escalable, diseñado para facilitar el desarrollo de aplicaciones web robustas y eficientes. Contiene una gran variedad de herramientas y componentes ya configurados para que puedas comenzar tu proyecto rápidamente.
-
-### Beneficios:
-
-- Arquitectura Clean: Separación de responsabilidades para un código más flexible y mantenible.
-- Escalabilidad: Listo para crecer con tu proyecto sin necesidad de grandes modificaciones.
-- Componentes preconfigurados: Ahorra tiempo y esfuerzo con herramientas ya listas para usar.
-- Entorno de desarrollo optimizado: Disfruta de una experiencia fluida con herramientas como ts-node-dev y TypeORM.
+- [Description](#description)
+- [Technologies](#technologies)
+- [Objective](#objective)
+- [Components](#components)
+- [Status](#status)
+- [Installation](#installation)
+- [Commands](#commands)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
-## Tecnologías <a name = "tecnologias"></a>
+## Description <a name = "description"></a>
 
-- TypeScript - Lenguaje de programación robusto y escalable.
-- Node.js - Entorno de ejecución ligero y eficiente.
-- ts-node-dev (nodemon) - Herramienta para ejecutar el proyecto en modo desarrollo con actualizaciones automáticas.
-- Express - Framework web popular para crear APIs RESTful.
-- TypeORM - ORM para trabajar con bases de datos MySQL de forma intuitiva.
-- MySQL - Base de datos relacional robusta y confiable.
+BloCoreTs is a backend framework with a Clean architecture and high scalability, designed to facilitate the development of robust and efficient web applications. It contains a wide variety of tools and pre-configured components allowing you to start your project quickly.
 
----
+### Benefits:
 
-## Objetivo <a name = "objetivo"></a>
-
-BloCoreTs tiene como objetivo proporcionar una base sólida y escalable para el desarrollo de backends web. Con su arquitectura Clean y sus componentes preconfigurados, te permite comenzar tu proyecto rápidamente y enfocarte en la lógica de negocio.
+- Clean Architecture: Separation of concerns for more flexible and maintainable code.
+- Scalability: Ready to grow with your project without the need for major modifications.
+- Pre-configured Components: Save time and effort with ready-to-use tools.
+- Optimized Development Environment: Enjoy a smooth experience with tools like ts-node-dev and TypeORM.
 
 ---
 
-## Componentes <a name = "componentes"></a>
+## Technologies <a name = "technologies"></a>
 
-BloCoreTs incluye una gran variedad de componentes preconfigurados para facilitar el desarrollo:
-
-- CORS: Soporte para solicitudes entre dominios.
-- JWT: Autenticación y autorización mediante tokens JSON Web.
-- ORM: Mapeo objeto-relacional para trabajar con bases de datos MySQL.
-- Middleware: Funciones intermedias para procesar solicitudes y respuestas.
-- Logs: Registro de eventos del sistema para facilitar la depuración.
-- Commands: Tareas automatizadas para ejecutar acciones específicas.
+- TypeScript - Robust and scalable programming language.
+- Node.js - Lightweight and efficient execution environment.
+- ts-node-dev (nodemon) - Tool for running the project in development mode with automatic updates.
+- Express - Popular web framework for creating RESTful APIs.
+- TypeORM - ORM for working with MySQL databases in an intuitive way.
+- MySQL - Robust and reliable relational database.
 
 ---
 
-## Estado <a name = "estado"></a>
+## Objective <a name = "objective"></a>
 
-El proyecto está terminado y listo para usarse. Sin embargo, se seguirán realizando actualizaciones y mejoras en el futuro.
+BloCoreTs aims to provide a solid and scalable foundation for web backend development. With its Clean architecture and pre-configured components, it allows you to start your project quickly and focus on the business logic.
 
 ---
 
-## Instalación <a name = "instalacion"></a>
+## Components <a name = "components"></a>
 
-Para instalar BloCoreTs, sigue estos pasos:
+BloCoreTs includes a wide variety of pre-configured components to facilitate development:
 
-1. Clona el repositorio de GitHub:
+- CORS: Support for cross-domain requests.
+- JWT: Authentication and authorization using JSON Web Tokens.
+- ORM: Object-relational mapping for working with MySQL databases.
+- Middleware: Intermediate functions to process requests and responses.
+- Logs: System event logging to facilitate debugging.
+- Commands: Automated tasks for executing specific actions.
+
+---
+
+## Status <a name = "status"></a>
+
+The project is completed and ready for use. However, updates and improvements will continue to be made in the future.
+
+---
+
+## Installation <a name = "installation"></a>
+
+To install BloCoreTs, follow these steps:
+
+1. Clone the GitHub repository:
 
 ```
 git clone https://github.com/JHectorZ/BloCoreTs.git
 ```
 
-2. Accede al directorio del proyecto:
+2. Access the project directory:
 
 ```
 cd BloCoreTs
 ```
 
-3. Crea el archivo .env en base al archivo .env.EXAMPLE
-4. Instala los módulos de npm:
+3. Create the .env file based on the .env.EXAMPLE file.
+4. Install npm modules:
 
 ```
 npm install
 ```
 
-## Comandos <a name = “comandos”></a>
+## Commands <a name = "commands"></a>
 
-BloCoreTs tiene varios comandos para facilitar su uso:
-- Inicia el proyecto en modo desarrollo con actualizaciones automáticas:
+BloCoreTs has several commands to facilitate its use:
+- Start the project in development mode with automatic updates:
 ```
 npm run dev
 ```
-- Compila el proyecto de TypeScript a JavaScript
+- Compile the TypeScript project to JavaScript:
 ```
 npm run tsc
 ```
-- Inicia el API-REST en modo producción:
+- Start the API-REST in production mode:
 ```
 npm run start
 ```
-- Crea un nuevo modelo con sus archivos asociados en el módulo especificado.
+- Create a new model with its associated files in the specified module.
 ```
-npm run create models [nombre] [módulo]
-# Ejemplo: npm run create models Rol core
+npm run create models [name] [module]
+# Example: npm run create models Role core
 ```
-- Crea un nuevo módulo con la estructura de carpetas Domain, Application e Infrastructure.
+- Create a new module with the structure of Domain, Application, and Infrastructure folders.
 ```
-npm run create module [nombre]
-# Ejemplo: npm run create module business
+npm run create module [name]
+# Example: npm run create module business
 ```
-## Contribución <a name = “contribucion”></a>
-Te invito a contribuir al proyecto reportando errores, creando nuevas funcionalidades o mejorando la documentación. Para más información, consulta la sección Contribuciones en el archivo README.md.
+## Contributing <a name = "contributing"></a>
+I invite you to contribute to the project by reporting bugs, creating new features, or improving documentation. For more information, consult the Contributions section in the README.md file.
 
-## Licencia <a name = “licencia”></a>
-BloCoreTs se distribuye bajo la licencia Apache 2.0. Puedes encontrar más información en el archivo LICENSE.md.
+## License <a name = "license"></a>
+BloCoreTs is distributed under the Apache 2.0 license. You can find more information in the LICENSE.md file.
 
-## Contacto <a name = “contacto”></a>
-Si tienes alguna pregunta o necesitas ayuda con el proyecto, puedes contactarme a través de mi perfil de Linkedin: [[JHectorZ]]([https://www.linkedin.com/in/jes%C3%BAs-h%C3%A9ctor-zavala-inzunza-670530259/])
+## Contact <a name = "contact"></a>
+If you have any questions or need help with the project, you can contact me through my Linkedin profile: [[JHectorZ]](https://www.linkedin.com/in/jesús-héctor-zavala-inzunza-670530259/)
