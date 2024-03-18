@@ -80,7 +80,8 @@ export class UserAdapter implements UserRepository {
         const user = await AppDataSource
             .getRepository(UserEntity)
             .createQueryBuilder('user')
-            .select(['user.userId', 'user.username', 'user.email', 'user.password'])
+            .select(['user.userId', 'user.username', 'user.email', 'user.password', 'user.role.roleId'])
+            .leftJoinAndSelect('user.role', 'role')
             .where('BINARY user.username = :username', { username })
             .andWhere('user.status = :status', { status: User.ENABLE })
             .getOneOrFail()

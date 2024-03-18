@@ -107,7 +107,7 @@ export const login = async (request: Request, response: Response) => {
         UserFactory.assignment(user, request.body);
         const currentUser = await userUseCase.login(user)
 
-        response.setHeader('Authorization', currentUser.getToken!)
+        response.setHeader('Authorization', currentUser.token!)
         return response.json({
             ok: true,
             data: currentUser

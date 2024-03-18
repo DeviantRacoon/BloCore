@@ -20,6 +20,16 @@ export class RoleAdapter implements RoleRepository {
         return RoleFactory.arrayJsonToModelArray(RoleRepository)
     }
 
+    async getRolesActive(): Promise<Role[]> {
+        let RoleRepository = await AppDataSource
+            .getRepository(RoleEntity)
+            .createQueryBuilder('role')
+            .where('role.status = :status', { status: Role.ENABLE })
+            .getMany()
+
+        return RoleFactory.arrayJsonToModelArray(RoleRepository)
+    }
+
     async getRolesByParams(page: number, role: Role): Promise<PaginatedResult<Role>> {
         let roleRepository = AppDataSource
             .getRepository(RoleEntity)

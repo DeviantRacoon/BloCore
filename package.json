@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "create": "ts-node src/app/create-models.ts"
+    "start": "pm2 start ecosystem.config.json",
+    "create": "ts-node tools/create-models.ts"
   },
   "keywords": [],
   "author": "",

@@ -21,6 +21,22 @@ export const getRoles = async (request: Request, response: Response) => {
     }
 };
 
+export const getRolesActive = async (request: Request, response: Response) => {
+    try {
+        const data = await roleUseCase.getRolesActive();
+
+        return response.json({
+            ok: true,
+            data,
+        });
+    } catch (error: any) {
+        return response.json({
+            ok: false,
+            error: error.message,
+        });
+    }
+};
+
 export const getRolesByParams = async (request: Request, response: Response) => {
     try {
         let role = new Role();

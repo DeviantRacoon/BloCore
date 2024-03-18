@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,node
 
+#production
+.prod.txt
+
 ### Linux ###
 *~
 

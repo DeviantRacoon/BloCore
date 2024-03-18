@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for blocore on 2024-03-13T14:45:55-06:00
+# fly.toml app configuration file generated for blocore-purple-water-46 on 2024-03-14T12:22:17-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'blocore'
+app = 'blocore-purple-water-46'
 primary_region = 'gdl'
 
 [build]

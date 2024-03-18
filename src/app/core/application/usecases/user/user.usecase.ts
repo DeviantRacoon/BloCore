@@ -80,7 +80,7 @@ export class UserUseCase {
         userByUsername.setToken = Token.getJwtToken(user)
         userByUsername.setPassword = undefined
 
-        return userByUsername
+        return UserFactory.toJsonLogin(userByUsername)
     }
 
 }

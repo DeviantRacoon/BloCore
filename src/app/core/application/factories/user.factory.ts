@@ -150,6 +150,17 @@ export class UserFactory {
         };
     }
 
+    static toJsonLogin(user: User) {
+        return {
+            userId: user.getUserId,
+            username: user.getUsername,
+            email: user.getEmail,
+            password: user.getPassword,
+            token: user.getToken,
+            roleName: user.getRole ? user.getRole?.getRoleName : undefined,
+        };
+    }
+
     static checkUndefinedFields(user: User) {
         const fields = [
             user.getPerson,

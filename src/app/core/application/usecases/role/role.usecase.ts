@@ -14,6 +14,11 @@ export class RoleUseCase {
         return data
     }
 
+    async getRolesActive() {
+        const data = await this.roleRepository.getRolesActive()
+        return data
+    }
+
     async getRolesByParams(page: number, role: Role) {
         const data = await this.roleRepository.getRolesByParams(page, role)
         return data
