@@ -109,8 +109,8 @@
   "paths": {
     "@tools/*": ["./tools/*"],
     "@config/*": ["./src/config/*"],
-    "@public/*": ["./src/public/*"],
-    "@views/*": ["./src/public/views/*"],
+    "@public/*": ["./public/*"],
+    "@views/*": ["./public/views/*"],
     "@utils/*": ["./src/utils/*"],
     "@middlewares/*": ["./src/config/middleware/*"]
   }

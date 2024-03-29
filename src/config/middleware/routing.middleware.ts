@@ -10,7 +10,8 @@ import displayRouter from "../../app/menu/infrastructure/res/routes/display.rout
 
 export const routingModule = (server: any) => {
   server.app.get("/", (req: any, res: any) => {
-    res.sendFile(path.join( __dirname, "../../../src/public/views/index.html"))});
+    res.sendFile("views/index.html", { root: "public" });
+  });
 
   server.app.use("/user", userRouter);
   server.app.use("/role", roleRouter);

@@ -23,7 +23,6 @@ app.startServer(async () => {
         await AppDataSource.initialize();
         logger.info('Connection successful on database');
     } catch (err: any) {
-        // logger.error(err.message);
-
+        logger.error(err);
     }
 });
