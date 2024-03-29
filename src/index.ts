@@ -21,7 +21,6 @@ app.startServer(async () => {
     logger.info('Server is running on port: ' + app.port);
     try {
         await AppDataSource.initialize();
-        console.log(process.env.PORT);
         logger.info('Connection successful on database');
     } catch (err: any) {
         logger.error(err);
