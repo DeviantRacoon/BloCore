@@ -9,7 +9,7 @@ export class ServerExpress {
 
     constructor() {
         this.app = express();
-        this.port = +process.env.PORT! || 3000;
+        this.port = Number(process.env.PORT) || 3000;
     }
 
     startServer(callback: VoidFunction) {
